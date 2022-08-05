@@ -2,7 +2,11 @@ shared:
   image: node16
 
 jobs:
-  build1:
+  main:
     requires: [ ~commit, ~pr ]
     steps:
-       - echo "fooo"
+       - echo "commits or PRs against pipeline branch"
+  alpha-prs:
+    requires: [ ~pr:alpha ]
+    steps:
+       - echo "PR against alpha branch"
